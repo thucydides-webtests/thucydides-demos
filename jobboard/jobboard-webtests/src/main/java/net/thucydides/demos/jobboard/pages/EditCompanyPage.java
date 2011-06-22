@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-@DefaultUrl("http://localhost:9000/admin/categories/new")
+@DefaultUrl("http://localhost:9000/admin/companies/new")
 public class EditCompanyPage extends PageObject {
 
     @FindBy(id="object_name")
@@ -26,6 +26,9 @@ public class EditCompanyPage extends PageObject {
 
     @FindBy(name="_save")
     WebElement saveButton;
+
+    @FindBy(xpath = "//input[@value='Delete Company']")
+    WebElement deleteButton;
 
     public EditCompanyPage(WebDriver driver) {
         super(driver);
@@ -55,4 +58,8 @@ public class EditCompanyPage extends PageObject {
         saveButton.click();
     }
 
+
+    public void clickOnDelete() {
+        deleteButton.click();
+    }
 }

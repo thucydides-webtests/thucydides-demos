@@ -31,7 +31,6 @@ public class EditCategoryPage extends PageObject {
         saveButton.click();
     }
 
-
     public void clickOnDelete() {
         deleteButton.click();
     }

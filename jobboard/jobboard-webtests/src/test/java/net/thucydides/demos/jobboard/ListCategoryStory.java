@@ -4,8 +4,8 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
-import net.thucydides.demos.jobboard.requirements.Application.ManageCategories.AddNewCategory;
-import net.thucydides.demos.jobboard.steps.AdminSteps;
+import net.thucydides.demos.jobboard.requirements.Application.ManageCategories.ListCategories;
+import net.thucydides.demos.jobboard.steps.AdministratorSteps;
 import net.thucydides.junit.annotations.Managed;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.After;
@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
-@Story(AddNewCategory.class)
+@Story(ListCategories.class)
 public class ListCategoryStory {
 
     @Managed
@@ -25,30 +25,30 @@ public class ListCategoryStory {
     public Pages pages;
 
     @Steps
-    public AdminSteps steps;
+    public AdministratorSteps steps;
 
     @Before
     public void login_if_required() {
-        steps.login_to_admin_page_if_first_time();
-        steps.add_category("Java Developers", "JAVA");
-        steps.add_category("Ruby Developers", "RUBY");
-        steps.add_category(".NET Developers", "NET");
+        steps.logs_in_to_admin_page_if_first_time();
+        steps.adds_category("Java Developers", "JAVA");
+        steps.adds_category("Ruby Developers", "RUBY");
+        steps.adds_category(".NET Developers", "NET");
     }
 
     @After
     public void remove_test_category() {
-        steps.delete_category("Java Developers");
-        steps.delete_category("Ruby Developers");
-        steps.delete_category(".NET Developers");
+        steps.deletes_category("Java Developers");
+        steps.deletes_category("Ruby Developers");
+        steps.deletes_category(".NET Developers");
     }
 
     @Test
     public void administrator_lists_all_available_categories_in_the_system() {
-        steps.open_categories_list();
+        steps.opens_categories_list();
 
-        steps.category_should_appear("Java Developers");
-        steps.category_should_appear("Ruby Developers");
-        steps.category_should_appear(".NET Developers");
+        steps.should_see_category("Java Developers");
+        steps.should_see_category("Ruby Developers");
+        steps.should_see_category(".NET Developers");
 
     }
 

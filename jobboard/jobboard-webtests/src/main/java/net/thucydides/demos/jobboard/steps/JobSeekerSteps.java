@@ -5,8 +5,14 @@ import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
 import net.thucydides.demos.jobboard.pages.FindAJobPage;
 
+import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.hasItems;
+
 /**
- * A steps library contains a set of reusable actions that manipulate page objects.
+ * A job_seeker library contains a set of reusable actions that manipulate page objects.
  * Methods annotated with @Step will be recorded and reported in the Thucydides
  * reports.
  *
@@ -20,23 +26,38 @@ public class JobSeekerSteps extends ScenarioSteps {
 
 
     @Step
-    public void open_jobs_page() {
+    public void opens_jobs_page() {
         FindAJobPage page = getPages().get(FindAJobPage.class);
         page.open();
     }
 
     @Step
-    public void search_for_jobs_using(String keywords) {
+    public void searches_for_jobs_using(String keywords) {
         FindAJobPage page = getPages().get(FindAJobPage.class);
         page.look_for_jobs_with_keywords(keywords);
 
     }
 
     @Step
-    public void page_should_display(String message) {
+    public void should_see_message(String message) {
         FindAJobPage page = getPages().get(FindAJobPage.class);
         page.shouldContainText(message);
     }
 
+    @Step
+    public void should_see_job_categories(String... categories) {
+        FindAJobPage page = getPages().get(FindAJobPage.class);
+        List<String> jobTabs = page.getJobTabs();
+        assertThat(jobTabs,hasItems(categories));
+
+    }
+
+    @Step
+    public void should_see_job_category(String category) {
+        FindAJobPage page = getPages().get(FindAJobPage.class);
+        List<String> jobTabs = page.getJobTabs();
+        assertThat(jobTabs,hasItem(category));
+
+    }
 
 }

@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 @DefaultUrl("http://localhost:9000/admin")
 public class AdminLoginPage extends PageObject {
@@ -12,6 +13,9 @@ public class AdminLoginPage extends PageObject {
     WebElement email;
     WebElement password;
     WebElement signin;
+
+    @FindBy(linkText = "Logout")
+    WebElement logout;
 
     public AdminLoginPage(WebDriver driver) {
         super(driver);
@@ -24,5 +28,7 @@ public class AdminLoginPage extends PageObject {
     }
 
 
-
+    public void logout() {
+        logout.click();
+    }
 }

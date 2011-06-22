@@ -4,18 +4,22 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
-import net.thucydides.demos.jobboard.requirements.Application.ManageCategories.DeleteCategory;
+import net.thucydides.demos.jobboard.requirements.Application.ManageCategories.AddNewCategory;
 import net.thucydides.demos.jobboard.steps.AdministratorSteps;
+import net.thucydides.demos.jobboard.steps.DataDrivenCategorySteps;
 import net.thucydides.junit.annotations.Managed;
 import net.thucydides.junit.runners.ThucydidesRunner;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import java.io.IOException;
+
+import static net.thucydides.core.steps.StepData.withTestDataFrom;
+
 @RunWith(ThucydidesRunner.class)
-@Story(DeleteCategory.class)
-public class DeleteACategoryStory {
+@Story(AddNewCategory.class)
+public class AddAndDeleteCategoriesStory {
 
     @Managed
     public WebDriver webdriver;
@@ -26,22 +30,17 @@ public class DeleteACategoryStory {
     @Steps
     public AdministratorSteps steps;
 
-    @Before
-    public void login_if_required() {
-        steps.logs_in_to_admin_page_if_first_time();
-        steps.adds_category("Category to delete", "DELETABLE");
-    }
+    @Steps
+    public DataDrivenCategorySteps categorySteps;
 
     @Test
-    public void remove_test_category() {
+    public void adding_and_deleting_categories_should_be_easy() throws IOException {
+        steps.logs_in_to_admin_page_if_first_time();
         steps.opens_categories_list();
-        steps.should_see_category("Category to delete");
 
-        steps.displays_category_details_for("Category to delete");
-        steps.deletes_category();
+        withTestDataFrom("test-data/categories.csv").run(categorySteps).add_a_category();
 
-        steps.opens_categories_list();
-        steps.should_not_see_category("Category to delete");
+        withTestDataFrom("test-data/categories.csv").run(categorySteps).delete_a_category();
     }
 
 }

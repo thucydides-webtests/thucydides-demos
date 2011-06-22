@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.demos.jobboard.requirements.Application.ManageCategories.AddNewCategory;
-import net.thucydides.demos.jobboard.steps.AdminSteps;
+import net.thucydides.demos.jobboard.steps.AdministratorSteps;
 import net.thucydides.junit.annotations.Managed;
 import net.thucydides.junit.runners.ThucydidesRunner;
 import org.junit.After;
@@ -25,22 +25,22 @@ public class AddCategoryStory {
     public Pages pages;
 
     @Steps
-    public AdminSteps steps;
+    public AdministratorSteps steps;
 
     @After
     public void cleanup() {
-        steps.delete_category("Java Developers");
+        steps.deletes_category("Java Developers");
     }
 
     @Test
     public void administrator_adds_a_new_category_to_the_system() {
-        steps.login_to_admin_page_if_first_time();
-        steps.open_categories_list();
-        steps.select_add_category();
-        steps.add_new_category("Java Developers","JAVA");
-        steps.confirmation_message_should_be_displayed("The Category has been created");
+        steps.logs_in_to_admin_page_if_first_time();
+        steps.opens_categories_list();
+        steps.selects_add_category();
+        steps.adds_new_category("Java Developers", "JAVA");
+        steps.should_see_confirmation_message("The Category has been created");
 
-        steps.category_should_appear("Java Developers");
+        steps.should_see_category("Java Developers");
     }
 
     @Pending @Test

@@ -6,6 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
+import static ch.lambdaj.Lambda.extract;
+import static ch.lambdaj.Lambda.on;
+
 @DefaultUrl("http://localhost:9000/admin/companies")
 public class CompaniesPage extends AdminPage {
 
@@ -26,5 +31,14 @@ public class CompaniesPage extends AdminPage {
                 + message
                 + "')]";
         getDriver().findElement(By.xpath(xpath));
+    }
+
+    public Iterable<String> getCompanies() {
+        List<WebElement> companies = getDriver().findElements(By.xpath("//div[@id='crudListTable']//td/a"));
+        return extract(companies, on(WebElement.class).getText());
+    }
+
+    public void selectCompanyInList(String name) {
+        getDriver().findElement(By.linkText(name)).click();
     }
 }
