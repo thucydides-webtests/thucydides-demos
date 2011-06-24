@@ -43,4 +43,10 @@ public class LookForJobsStory {
     @Pending @Test
     public void tags_should_be_displayed_to_help_the_user_find_jobs() {}
 
+    @Pending @Test
+    public void the_user_can_list_all_of_the_jobs_for_a_given_tag() {}
+
+    @Pending @Test
+    public void the_user_can_see_the_total_number_of_jobs_on_offer() {}
+
 }

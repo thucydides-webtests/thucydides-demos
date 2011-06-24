@@ -38,3 +38,24 @@ scenario "The user can see the available job categories on the home page",
        cleanup_database()
     }
 }
+
+scenario "The user can search for jobs by keyword",
+{
+    when "the user wants to find a job"
+    and "the user provides some keywords"
+    then "the user should find all the relevant jobs"
+}
+
+scenario "The user can apply for a job online",
+{
+    when "the user has found a good job post"
+    and "the user applies for the job"
+    then "the user should see a confirmation of the job application"
+    and "the proposer should be notified"
+}
+
+scenario "The user can see all her job applications",
+{
+    when "the user wants to see all her job applications"
+    then "the system should display the list of job applications"
+}
