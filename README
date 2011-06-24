@@ -1,0 +1,5 @@
+## Thucydides demo apps
+
+Some simple demonstrations for the Thucydides application. They take the form of a Play application and a corresponding set of web tests. To run the Play application, you will need to install the Play framework (http://www.playframework.org/). T Then, go into the application directory (e.g. jobboard/jobboard) and execute `play run`.
+
+Once the application is running, you can run the web tests by going to the web test directory (e.g. jobboard/jobboard-webtests). To run the tests, just type `mvn test`.
