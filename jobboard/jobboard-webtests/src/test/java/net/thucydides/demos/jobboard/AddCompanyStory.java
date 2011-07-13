@@ -49,7 +49,7 @@ public class AddCompanyStory {
         steps.opens_companies_list();
         steps.selects_add_company();
         steps.adds_new_company("", "boss@acme.com", "secret", "http://acme.website.com", "/uploads/logo.gif");
-        steps.should_see_confirmation_message("The Company has been created");
+        steps.should_see_error_message("Required");
     }
 
     @Test
@@ -68,14 +68,9 @@ public class AddCompanyStory {
     @Test
     public void administrator_adds_a_company_but_forgets_to_add_mandatory_fields() {}
 
+    @Ignore("demonstrates a broken test")
     @Test
     public void administrator_adds_an_existing_company_to_the_broken_system() {
-        steps.should_see_error_message("Oh crap");
-    }
-
-    @Ignore
-    @Test
-    public void experminental_test() {
         steps.should_see_error_message("Oh crap");
     }
 

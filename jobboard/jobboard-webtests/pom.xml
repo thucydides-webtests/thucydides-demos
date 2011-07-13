@@ -12,7 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.2.0-SNAPSHOT</thucydides.version>
+        <thucydides.version>0.2.6-SNAPSHOT</thucydides.version>
+        <webdriver.driver>firefox</webdriver.driver>
     </properties>
 
     <dependencies>
@@ -59,12 +60,15 @@
                     <includes>
                         <include>**/*Story.java</include>
                     </includes>
+                    <systemPropertyVariables>
+                        <webdriver.driver>${webdriver.driver}</webdriver.driver>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.easyb</groupId>
                 <artifactId>maven-easyb-plugin</artifactId>
-                <version>1.2-SNAPSHOT</version>
+                <version>1.2.1</version>
                 <executions>
                     <execution>
                         <goals>
@@ -83,6 +87,7 @@
                     <storyType>html</storyType>
                     <storyReport>target/easyb/easyb.html</storyReport>
                     <easybTestDirectory>src/test/stories</easybTestDirectory>
+					<jvmArguments>-Dwebdriver.driver=${webdriver.driver}</jvmArguments>
                 </configuration>
             </plugin>
             <plugin>
