@@ -1,5 +1,6 @@
 package net.thucydides.demos.jobboard.pages;
 
+import net.thucydides.core.annotations.At;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;

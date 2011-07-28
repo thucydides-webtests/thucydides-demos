@@ -12,7 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.2.6-SNAPSHOT</thucydides.version>
+        <thucydides.version>0.2.9</thucydides.version>
+		<thucydides.easyb.version>0.2.9</thucydides.easyb.version>
         <webdriver.driver>firefox</webdriver.driver>
     </properties>
 
@@ -31,7 +32,7 @@
         <dependency>
             <groupId>net.thucydides.easyb</groupId>
             <artifactId>thucydides-easyb-plugin</artifactId>
-            <version>${thucydides.version}</version>
+            <version>${thucydides.easyb.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
