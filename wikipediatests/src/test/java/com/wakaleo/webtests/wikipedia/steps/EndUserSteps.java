@@ -14,14 +14,33 @@ public class EndUserSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void searches_for(String keyword) {
-		HomePage homePage = getPages().currentPageAt(HomePage.class);
-		homePage.enter_keywords(keyword);
+	public void enters(String keyword) {
+        onHomePage().enter_keywords(keyword);
 	}
 
-	@Step
+    @Step
+    public void starts_search() {
+        onHomePage().starts_search();
+    }
+
+    private HomePage onHomePage() {
+        return getPages().currentPageAt(HomePage.class);
+    }
+
+    @Step
 	public void should_see_article_with_title(String title) {
-		HomePage homePage = getPages().currentPageAt(HomePage.class);
-		assertThat(homePage.getTitle(), is(title));
+        assertThat(onHomePage().getTitle(), is(title));
 	}
+
+    @Step
+    public void is_on_the_wikipedia_home_page() {
+        onHomePage().open();
+    }
+
+    @Step
+    public void looks_up_cats() {
+        enters("cats");
+        starts_search();
+		should_see_article_with_title("Cat - Wikipedia, the free encyclopedia");
+    }
 }
