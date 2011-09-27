@@ -12,15 +12,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.4.8-SNAPSHOT</thucydides.version>
+        <thucydides.version>0.4.8</thucydides.version>
 		<thucydides.easyb.version>0.4.0</thucydides.easyb.version>
         <webdriver.driver>firefox</webdriver.driver>
-
-        <jira.url>http://ec2-122-248-221-171.ap-southeast-1.compute.amazonaws.com:8081/</jira.url>
-        <jira.username>bruce</jira.username>
-        <jira.password>batm0bile</jira.password>
-        <thucydides.public.url>http://localhost:9000</thucydides.public.url>
-
     </properties>
 
     <dependencies>
@@ -39,11 +33,6 @@
             <groupId>net.thucydides.easyb</groupId>
             <artifactId>thucydides-easyb-plugin</artifactId>
             <version>${thucydides.easyb.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>net.thucydides.plugins.jira</groupId>
-            <artifactId>thucydides-jira-plugin</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

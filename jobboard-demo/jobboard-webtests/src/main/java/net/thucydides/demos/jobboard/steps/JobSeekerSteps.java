@@ -74,9 +74,9 @@ public class JobSeekerSteps extends ScenarioSteps {
     public void should_see_job_posting_called(String jobName) {}
 
     @Step
+    @Pending
     public void opens_job_posting_called(String jobName) {
-        getDriver().findElement(By.linkText(jobName)).click();
-    }
+     }
 
     @Step
     @Pending

@@ -7,7 +7,7 @@ import net.thucydides.demos.jobboard.steps.EmployerSteps
 thucydides.uses_default_base_url "http://localhost:9000"
 thucydides.uses_steps_from JobSeekerSteps
 thucydides.uses_steps_from EmployerSteps
-thucydides.tests_story JobSeekerBrowsesJobAds
+thucydides.tests_story JobSeekerAppliesForJob
 
 scenario "A job seeker can apply for a job online",
 {
