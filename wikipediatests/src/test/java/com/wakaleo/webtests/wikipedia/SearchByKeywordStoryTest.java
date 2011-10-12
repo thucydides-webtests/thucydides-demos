@@ -37,7 +37,7 @@ public class SearchByKeywordStoryTest {
 		endUser.looks_up_cats();
     }
 
-    @Title("Searching by 'dog' should display the cats article")
+    @Title("Searching by 'dog' should display the dogs article")
     @Test
     public void searching_by_keyword_dog_should_display_the_corresponding_article() {
         endUser.is_on_the_wikipedia_home_page();
