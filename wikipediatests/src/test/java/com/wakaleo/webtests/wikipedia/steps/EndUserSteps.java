@@ -1,9 +1,12 @@
 package com.wakaleo.webtests.wikipedia.steps;
 
 import com.wakaleo.webtests.wikipedia.pages.HomePage;
+import groovyjarjarantlr.StringUtils;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
+
+import static ch.lambdaj.Lambda.join;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -43,4 +46,23 @@ public class EndUserSteps extends ScenarioSteps {
         starts_search();
 		should_see_article_with_title("Cat - Wikipedia, the free encyclopedia");
     }
+
+    @Step
+    public void searches_using_several_terms(String... terms) {
+        enters_terms(terms);
+        starts_search();
+        should_see_all_terms(terms);
+    }
+
+    @Step
+    public void enters_terms(String... terms) {
+        String termList = join(terms, " ");
+        onHomePage().enter_keywords(termList);
+    }
+
+    @Step
+    public void should_see_all_terms(String... terms) {
+        onHomePage().shouldContainAllText(terms);
+    }
+
 }
