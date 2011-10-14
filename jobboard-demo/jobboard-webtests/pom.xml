@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.4.8</thucydides.version>
+        <thucydides.version>0.4.10-SNAPSHOT</thucydides.version>
 		<thucydides.easyb.version>0.4.0</thucydides.easyb.version>
         <webdriver.driver>firefox</webdriver.driver>
     </properties>
@@ -62,7 +62,7 @@
                     </includes>
                     <systemPropertyVariables>
                         <webdriver.driver>${webdriver.driver}</webdriver.driver>
-                        <thucydides.issue.tracker.url>http://java.net/jira/browse/THUCYDIDES-{0}</thucydides.issue.tracker.url>
+                        <jira.url>http://ec2-122-248-221-171.ap-southeast-1.compute.amazonaws.com:8081</jira.url>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -95,6 +95,9 @@
                 <groupId>net.thucydides.maven.plugins</groupId>
                 <artifactId>maven-thucydides-plugin</artifactId>
                 <version>${thucydides.version}</version>
+                <configuration>
+                        <jiraUrl>http://ec2-122-248-221-171.ap-southeast-1.compute.amazonaws.com:8081</jiraUrl>
+                </configuration>
             </plugin>
         </plugins>
     </build> 

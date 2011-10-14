@@ -1,11 +1,12 @@
 package net.thucydides.demos.jobboard;
 
+import net.thucydides.core.annotations.Issue;
+import net.thucydides.core.annotations.Issues;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
-import net.thucydides.core.annotations.Title;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.demos.jobboard.requirements.JobBoardApplication.ManageCategories.AddNewCategory;
 import net.thucydides.demos.jobboard.steps.AdministratorSteps;
@@ -17,6 +18,7 @@ import org.openqa.selenium.WebDriver;
 
 @RunWith(ThucydidesRunner.class)
 @Story(AddNewCategory.class)
+@Issues({"#THUCINT-1","#THUCINT-2"})
 public class AddCategoryStory {
 
     @Managed
@@ -33,7 +35,7 @@ public class AddCategoryStory {
         steps.deletes_category("Java Developers");
     }
 
-    @Title("Deals with issue #THUCINT-1")
+    @Issue("#THUCINT-3")
     @Test
     public void administrator_adds_a_new_category_to_the_system() {
         steps.logs_in_to_admin_page_if_first_time();

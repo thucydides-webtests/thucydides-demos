@@ -12,7 +12,7 @@ public class HomePage extends PageObject {
 
 	private WebElement searchInput;
 	
-	@FindBy(name="goo")
+	@FindBy(name="go")
 	private WebElement searchButton;
 	
 	public HomePage(WebDriver driver) {

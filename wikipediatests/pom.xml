@@ -11,10 +11,11 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.4.8-SNAPSHOT</thucydides.version>
-        <jira.url>http://ec2-122-248-221-171.ap-southeast-1.compute.amazonaws.com:8081</jira.url>
-        <jira.username>bruce</jira.username>
-        <jira.password>batm0bile</jira.password>
+        <thucydides.version>0.4.12-SNAPSHOT</thucydides.version>
+        <!-- Provide these values on the command line or in your setting.xml file. -->
+        <jira.url>${jira.demo.server}</jira.url>
+        <jira.username>${jira.demo.user}</jira.username>
+        <jira.password>${jira.demo.password}</jira.password>
         <thucydides.public.url>http://localhost:9000</thucydides.public.url>
     </properties>
 
@@ -22,7 +23,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.2</version>
+            <version>4.9</version>
         </dependency>
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -37,7 +38,7 @@
         <dependency>
             <groupId>net.thucydides.plugins.jira</groupId>
             <artifactId>thucydides-jira-plugin</artifactId>
-            <version>0.5.1</version>
+            <version>0.5.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -52,7 +53,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.7.1</version>
                 <configuration>
-                    <argLine>-Xmx1024m</argLine> 
+                    <argLine>-Xmx1024m</argLine>
+                    <systemPropertyVariables>
+                        <!-- Activates the JIRA workflow integration. -->
+                        <thucydides.jira.workflow.active>true</thucydides.jira.workflow.active>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
