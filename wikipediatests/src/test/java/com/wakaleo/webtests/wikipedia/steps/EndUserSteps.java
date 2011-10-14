@@ -9,6 +9,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 import static ch.lambdaj.Lambda.join;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.startsWith;
 
 public class EndUserSteps extends ScenarioSteps {
 
@@ -65,4 +66,7 @@ public class EndUserSteps extends ScenarioSteps {
         onHomePage().shouldContainAllText(terms);
     }
 
+    public void should_see_article_with_title_starting_with(String text) {
+        assertThat(onHomePage().getTitle(), startsWith(text));
+    }
 }
