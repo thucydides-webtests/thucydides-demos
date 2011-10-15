@@ -1,7 +1,6 @@
 package com.wakaleo.webtests.wikipedia.steps;
 
 import com.wakaleo.webtests.wikipedia.pages.HomePage;
-import groovyjarjarantlr.StringUtils;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -45,7 +44,6 @@ public class EndUserSteps extends ScenarioSteps {
     public void looks_up_cats() {
         enters("cats");
         starts_search();
-		should_see_article_with_title("Cat - Wikipedia, the free encyclopedia");
     }
 
     @Step

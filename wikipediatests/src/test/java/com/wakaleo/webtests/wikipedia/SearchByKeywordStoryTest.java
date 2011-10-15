@@ -5,7 +5,6 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
-import net.thucydides.core.annotations.Title;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.junit.runners.ThucydidesRunner;
@@ -35,6 +34,8 @@ public class SearchByKeywordStoryTest {
     public void searching_by_unambiguious_keyword_should_display_the_corresponding_article() {
         endUser.is_on_the_wikipedia_home_page();
 		endUser.looks_up_cats();
+        endUser.should_see_article_with_title("Cat - Wikipedia, the free encyclopedia");
+
     }
 
     @Test
