@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.4.12-SNAPSHOT</thucydides.version>
+        <thucydides.version>0.4.12</thucydides.version>
         <!-- Provide these values on the command line or in your setting.xml file. -->
         <jira.url>${jira.demo.server}</jira.url>
         <jira.username>${jira.demo.user}</jira.username>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>net.thucydides.plugins.jira</groupId>
             <artifactId>thucydides-jira-plugin</artifactId>
-            <version>0.5.2-SNAPSHOT</version>
+            <version>0.5.2</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
