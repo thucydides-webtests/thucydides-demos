@@ -16,8 +16,9 @@ import org.openqa.selenium.WebDriver;
 import com.wakaleo.webtests.wikipedia.requirements.Application;
 import com.wakaleo.webtests.wikipedia.steps.EndUserSteps;
 
-@RunWith(ThucydidesRunner.class)
 @Story(Application.Search.SearchByKeyword.class)
+@RunWith(ThucydidesRunner.class)
+@Issue("#WIKI-1")
 public class SearchByKeywordStoryTest {
 
     @Managed(uniqueSession = true)
