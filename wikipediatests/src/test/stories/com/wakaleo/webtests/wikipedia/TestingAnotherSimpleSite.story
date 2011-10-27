@@ -1,15 +1,15 @@
 package com.wakaleo.webtests.wikipedia
 
 import com.wakaleo.webtests.wikipedia.steps.EndUserSteps
-import com.wakaleo.webtests.wikipedia.requirements.Application.Search.SearchByKeyword
+import com.wakaleo.webtests.wikipedia.requirements.Application.Search.SearchByAnimalRelatedKeyword
 
 using "thucydides"
 
 thucydides.uses_default_base_url "http://www.wikipedia.com"
 thucydides.uses_steps_from EndUserSteps
-thucydides.tests_story SearchByKeyword
+thucydides.tests_story SearchByAnimalRelatedKeyword
 
-thucydides.tests_issue "#WIKI-2"
+thucydides.tests_issue "#WIKI-4"
 
 scenario "Searching for multiple terms", {
     given "the user is on the home page", {

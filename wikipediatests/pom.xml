@@ -11,13 +11,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.4.15</thucydides.version>
+        <thucydides.version>0.4.16-SNAPSHOT</thucydides.version>
         <!-- Provide these values on the command line or in your setting.xml file. -->
         <jira.url>${jira.demo.server}</jira.url>
         <jira.username>${jira.demo.user}</jira.username>
         <jira.password>${jira.demo.password}</jira.password>
         <thucydides.jira.workflow.active>true</thucydides.jira.workflow.active>
         <thucydides.public.url>http://localhost:9000</thucydides.public.url>
+        <webdriver.driver>firefox</webdriver.driver>
     </properties>
 
     <dependencies>
@@ -51,12 +52,6 @@
             <version>0.5.4</version>
             <scope>test</scope>
         </dependency>
-
-        <!--<dependency>-->
-            <!--<groupId>org.slf4j</groupId>-->
-            <!--<artifactId>slf4j-simple</artifactId>-->
-            <!--<version>1.6.1</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.googlecode.lambdaj</groupId>
             <artifactId>lambdaj</artifactId>
@@ -72,14 +67,11 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.6.1</version>
         </dependency>
-
-
-        <!--<dependency>-->
-            <!--<groupId>ch.qos.logback</groupId>-->
-            <!--<artifactId>logback-classic</artifactId>-->
-            <!--<version>0.9.24</version>-->
-        <!--</dependency>-->
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -90,6 +82,7 @@
                 <configuration>
                     <argLine>-Xmx1024m</argLine>
                     <systemPropertyVariables>
+                        <webdriver.driver>${webdriver.driver}</webdriver.driver>
                         <!-- Activates the JIRA comments integration. -->
                         <jira.url>${jira.demo.server}</jira.url>
                         <jira.username>${jira.demo.user}</jira.username>
@@ -127,7 +120,6 @@
                     <storyType>html</storyType>
                     <storyReport>target/easyb/easyb.html</storyReport>
                     <easybTestDirectory>src/test/stories</easybTestDirectory>
-                    <parallel>true</parallel>
                     <jvmArguments>
                         -Xmx512m
                         -Djira.url=${jira.demo.server}
@@ -135,6 +127,7 @@
                         -Djira.password=${jira.demo.password}
                         -Dthucydides.public.url=${thucydides.public.url}
                         -Dthucydides.jira.workflow.active=true
+                        -Dwebdriver.driver=${webdriver.driver}
                     </jvmArguments>
                 </configuration>
             </plugin>
@@ -142,6 +135,9 @@
                 <groupId>net.thucydides.maven.plugins</groupId>
                 <artifactId>maven-thucydides-plugin</artifactId>
                 <version>${thucydides.version}</version>
+                <configuration>
+                    <jiraUrl>${jira.demo.server}</jiraUrl>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -183,6 +179,9 @@
                                     <groupId>net.thucydides.maven.plugins</groupId>
                                     <artifactId>maven-thucydides-plugin</artifactId>
                                     <version>${thucydides.version}</version>
+                                    <configuration>
+                                        <jiraUrl>${jira.demo.server}</jiraUrl>
+                                    </configuration>
                                 </plugin>
                             </reportPlugins>
                         </configuration>
