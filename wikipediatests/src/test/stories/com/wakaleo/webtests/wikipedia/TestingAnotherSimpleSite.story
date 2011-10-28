@@ -1,13 +1,13 @@
 package com.wakaleo.webtests.wikipedia
 
 import com.wakaleo.webtests.wikipedia.steps.EndUserSteps
-import com.wakaleo.webtests.wikipedia.requirements.Application.Search.SearchByAnimalRelatedKeyword
+import com.wakaleo.webtests.wikipedia.requirements.Application.Search.SearchByPlaceRelatedKeyword
 
 using "thucydides"
 
 thucydides.uses_default_base_url "http://www.wikipedia.com"
 thucydides.uses_steps_from EndUserSteps
-thucydides.tests_story SearchByAnimalRelatedKeyword
+thucydides.tests_story SearchByPlaceRelatedKeyword
 
 thucydides.tests_issue "#WIKI-4"
 

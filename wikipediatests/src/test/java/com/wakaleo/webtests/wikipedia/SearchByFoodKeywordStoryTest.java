@@ -28,19 +28,19 @@ public class SearchByFoodKeywordStoryTest {
     public EndUserSteps endUser;
 
     @Test
-    public void searching_by_keyword_apple_should_display_the_corresponding_article() {
+    public void searching_by_keyword_guava_should_display_the_corresponding_article() {
         endUser.is_on_the_wikipedia_home_page();
-		endUser.enters("apples");
+		endUser.enters("guava");
         endUser.starts_search();
-		endUser.should_see_article_with_title_starting_with("Apple");
+		endUser.should_see_article_with_title_starting_with("Guava");
     }
 
     @Test
-    public void searching_by_keyword_pears_should_display_the_corresponding_article() {
+    public void searching_by_keyword_pineapples_should_display_the_corresponding_article() {
         endUser.is_on_the_wikipedia_home_page();
-		endUser.enters("pears");
+		endUser.enters("pineapples");
         endUser.starts_search();
-        endUser.should_see_article_with_title_starting_with("Pear");
+        endUser.should_see_article_with_title_starting_with("Pineapple");
     }
 
     @Pending @Test

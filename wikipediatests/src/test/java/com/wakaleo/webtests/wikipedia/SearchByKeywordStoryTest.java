@@ -34,17 +34,17 @@ public class SearchByKeywordStoryTest {
     @Test
     public void searching_by_unambiguious_keyword_should_display_the_corresponding_article() {
         endUser.is_on_the_wikipedia_home_page();
-		endUser.looks_up_cats();
-        endUser.should_see_article_with_title("Cat - Wikipedia, the free encyclopedia");
+		endUser.looks_for("bethany");
+        endUser.should_see_article_with_title("Bethany - Wikipedia, the free encyclopedia");
 
     }
 
     @Test
-    public void searching_by_keyword_dog_should_display_the_corresponding_article() {
+    public void searching_by_keyword_attica_should_display_the_corresponding_article() {
         endUser.is_on_the_wikipedia_home_page();
-		endUser.enters("dogs");
+		endUser.looks_for("attica");
         endUser.starts_search();
-		endUser.should_see_article_with_title("Dog - Wikipedia, the free encyclopedia");
+		endUser.should_see_article_with_title("Attica - Wikipedia, the free encyclopedia");
     }
 
     @Pending @Test

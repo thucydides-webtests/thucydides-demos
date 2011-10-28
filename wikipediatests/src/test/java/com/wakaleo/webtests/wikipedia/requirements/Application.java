@@ -6,7 +6,7 @@ public class Application {
     @Feature
     public class Search {
         public class SearchByKeyword {}
-        public class SearchByAnimalRelatedKeyword {}
+        public class SearchByPlaceRelatedKeyword {}
         public class SearchByFoodRelatedKeyword {}
         public class SearchByMultipleKeywords {}
         public class SearchForQuote{}

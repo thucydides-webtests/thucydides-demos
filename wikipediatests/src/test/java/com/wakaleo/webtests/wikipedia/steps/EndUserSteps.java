@@ -41,12 +41,6 @@ public class EndUserSteps extends ScenarioSteps {
     }
 
     @Step
-    public void looks_up_cats() {
-        enters("cats");
-        starts_search();
-    }
-
-    @Step
     public void looks_for(String term) {
         enters(term);
         starts_search();

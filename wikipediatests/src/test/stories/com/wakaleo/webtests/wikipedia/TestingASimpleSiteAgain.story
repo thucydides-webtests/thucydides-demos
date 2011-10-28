@@ -2,7 +2,7 @@ package com.wakaleo.webtests.wikipedia
 
 import com.wakaleo.webtests.wikipedia.steps.EndUserSteps
 import com.wakaleo.webtests.wikipedia.requirements.Application.Search.SearchByKeyword
-import com.wakaleo.webtests.wikipedia.requirements.Application.Search.SearchByAnimalRelatedKeyword
+import com.wakaleo.webtests.wikipedia.requirements.Application.Search.SearchByPlaceRelatedKeyword
 import com.wakaleo.webtests.wikipedia.requirements.Application.Search.SearchByFoodRelatedKeyword
 
 using "thucydides"
