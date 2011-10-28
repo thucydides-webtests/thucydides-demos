@@ -80,7 +80,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.10</version>
                 <configuration>
-                    <argLine>-Xmx2048m</argLine>
+                    <argLine>-Xmx1024m</argLine>
                     <systemPropertyVariables>
                         <webdriver.driver>${webdriver.driver}</webdriver.driver>
                         <!-- Activates the JIRA comments integration. -->
@@ -121,7 +121,7 @@
                     <storyReport>target/easyb/easyb.html</storyReport>
                     <easybTestDirectory>src/test/stories</easybTestDirectory>
                     <jvmArguments>
-                        -Xmx2048m
+                        -Xmx1024m
                         -Djira.url=${jira.demo.server}
                         -Djira.username=${jira.demo.user}
                         -Djira.password=${jira.demo.password}
