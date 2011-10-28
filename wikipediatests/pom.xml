@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.4.16-SNAPSHOT</thucydides.version>
+        <thucydides.version>0.4.16</thucydides.version>
         <!-- Provide these values on the command line or in your setting.xml file. -->
         <jira.url>${jira.demo.server}</jira.url>
         <jira.username>${jira.demo.user}</jira.username>
