@@ -190,4 +190,18 @@
             </build>
         </profile>
     </profiles>
+    <!-- You shouldn't normally put repositories in a pom file. This is just to ensure that
+         the Jenkins slave gets the artifacts from the right place. -->
+    <repositories>
+        <repository>
+            <id>sonatype-oss-releases</id>
+            <name>Sonatype OSS Releases</name>
+            <url>https://oss.sonatype.org/content/repositories/releases</url>
+        </repository>
+        <repository>
+            <id>sonatype-oss-snapshots</id>
+            <name>Sonatype OSS Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
 </project>
